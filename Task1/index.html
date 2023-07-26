@@ -56,6 +56,29 @@
         function show(id){
             document.getElementById("imgAir").src = "Images/air"+id+".png";
         }
+        onload =function(){
+            f();
+        }
+       async function f(){
+        const axios = require('axios');
+
+const options = {
+  method: 'GET',
+  url: 'https://odds.p.rapidapi.com/v4/sports',
+  params: {all: 'true'},
+  headers: {
+    'X-RapidAPI-Key': 'SIGN-UP-FOR-KEY',
+    'X-RapidAPI-Host': 'odds.p.rapidapi.com'
+  }
+};
+
+try {
+	const response = await axios.request(options);
+	console.log(response.data);
+} catch (error) {
+	console.error(error);
+}
+       }
     </script>
 </body>
 
